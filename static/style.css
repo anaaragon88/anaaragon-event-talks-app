@@ -8,6 +8,21 @@
     --border-color: rgba(255, 255, 255, 0.1);
 }
 
+:root.light-theme {
+    --bg-color: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme {
+    background-image: radial-gradient(circle at top right, #e2e8f0, transparent 40%),
+                      radial-gradient(circle at bottom left, #f8fafc, transparent 40%);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -39,6 +54,11 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+.header-actions {
+    display: flex;
+    gap: 1rem;
+}
+
 h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -62,7 +82,16 @@ h1 {
     transition: background-color 0.2s, transform 0.1s;
 }
 
-.btn:hover {
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn:hover:not(.btn-secondary) {
     background-color: var(--accent-hover);
 }
 
@@ -145,10 +174,14 @@ h1 {
     text-decoration: underline;
 }
 
-.tweet-btn {
+.card-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.tweet-btn, .copy-btn {
     align-self: flex-start;
-    background-color: #1da1f2;
-    color: white;
     padding: 0.5rem 1rem;
     border-radius: 9999px;
     text-decoration: none;
@@ -157,15 +190,32 @@ h1 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.tweet-btn {
+    background-color: #1da1f2;
+    color: white;
 }
 
 .tweet-btn:hover {
     background-color: #1a91da;
 }
 
-.tweet-icon {
+.copy-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.copy-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tweet-icon, .copy-icon {
     width: 16px;
     height: 16px;
-    fill: currentColor;
 }
+.tweet-icon { fill: currentColor; }

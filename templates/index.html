@@ -12,10 +12,18 @@
     <div class="container">
         <header>
             <h1>BigQuery Updates</h1>
-            <button id="refresh-btn" class="btn">
-                <span class="spinner" id="spinner"></span>
-                Refresh
-            </button>
+            <div class="header-actions">
+                <button id="theme-toggle-btn" class="btn btn-secondary" title="Toggle Theme">
+                    🌓
+                </button>
+                <button id="export-csv-btn" class="btn btn-secondary">
+                    Export to CSV
+                </button>
+                <button id="refresh-btn" class="btn">
+                    <span class="spinner" id="spinner"></span>
+                    Refresh
+                </button>
+            </div>
         </header>
         <main id="notes-container">
             <!-- Notes will be injected here -->
